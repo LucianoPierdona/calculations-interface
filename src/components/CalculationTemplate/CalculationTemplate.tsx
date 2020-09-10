@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input, Title, ValuesBlock } from './style';
-import { generateRandomNumbers } from './generateRandomNumbers';
 
 const CalculationTemplate = () => {
     const [answer, setAnswer] = useState(Number);
+    const [firstValue, setFirstValue] = useState(Number);
+    const [secondValue, setSecondValue] = useState(Number);
 
-    let { firstValue, secondValue } = generateRandomNumbers;
+    const callFirstValue = () => setFirstValue(Math.floor(Math.random() * 100) + 1);
+    const callSecondValue = () => setSecondValue(Math.floor(Math.random() * 100) + 1);
+
+    useEffect(() => {
+        callFirstValue();
+        callSecondValue();
+    }, [])
+
 
     const onFormSubmit = () => {
         if (answer === firstValue + secondValue ) {
-            return console.log('funciona');
+            callFirstValue();
+            callSecondValue();
         }
+        console.log('erro')
     }
 
     return (
@@ -29,7 +39,9 @@ const CalculationTemplate = () => {
                     type="number" 
                     placeholder="Type the answer" 
                     value={answer}
-                    onChange={(e) => setAnswer(Number(e.target.value))}
+                    onChange={(e) => {
+                        setAnswer(Number(e.target.value)) 
+                        e.stopPropagation() } }
                 />
             </form>
         </>

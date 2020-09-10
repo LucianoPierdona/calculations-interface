@@ -6,7 +6,7 @@ export const Container = styled.section`
     border: 3px solid #ffffff;
     border-radius: 22px;
     padding: 15px;
-    height: 300px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,4 +16,20 @@ export const Container = styled.section`
     0 4px 4px rgba(0,0,0,0.1), 
     0 8px 8px rgba(0,0,0,0.1),
     0 16px 16px rgba(0,0,0,0.1);
+`;
+
+export const Header = styled.header`
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 25px;
+    & > a {
+        margin-right: 15px;
+        font-weight: 700;
+        transition: color 0.2s;
+    }
+    & a:hover {
+        color: #f6f7d4;
+    }
 `;
