@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import App from './components/App/App';
-import CalculationTemplate from './components/CalculationTemplate/CalculationTemplate';
-
+import Division from './components/Division/Division';
+import Multiplication from './components/Multiplication/Multiplication';
+import Sum from './components/Sum/Sum';
 
 function Routes() {
     return (
         <BrowserRouter>
-            <Route path="/" exact component={App} />
-            <Route path="/multiplication" component={CalculationTemplate} />
+            <Route path="/" exact component={Sum} />
+            <Route path="/multiplication" component={Multiplication} />
+            <Route path="/division" component={Division} />
         </BrowserRouter>
     );
 }
