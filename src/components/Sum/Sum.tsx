@@ -2,6 +2,7 @@ import React from 'react';
 import CalculationTemplate from '../CalculationTemplate/CalculationTemplate';
 import Layout from '../Layout/Layout';
 
+// create the sum block
 const Sum = () => {
     return (
         <Layout>

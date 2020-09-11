@@ -16,7 +16,6 @@ const CalculationTemplate: React.FC<Props> = ({ title, signal, type }) => {
     // Generate random numbers
     const callFirstValue = () => setFirstValue(Math.floor(Math.random() * 100) + 1);
     const callSecondValue = () => setSecondValue(Math.floor(Math.random() * 100) + 1);
-
     const callDivisionFirstValue = () => setDivisionFirstValue(Math.floor(Math.random() * 10000) + 1);
 
     // generate each number at the beginning of each render
@@ -26,34 +25,43 @@ const CalculationTemplate: React.FC<Props> = ({ title, signal, type }) => {
         callDivisionFirstValue();
     }, [])
 
-
+    // check the type and if the value is equal
     const onFormSubmit = () => {
+        const callFunctions = () => {
+            callFirstValue();
+            callSecondValue();
+            setAnswer(0);
+        }
         switch(type) {
             case 'sum':
                 if (answer === firstValue + secondValue ) {
-                    callFirstValue();
-                    callSecondValue();
-                    setAnswer(0);
+                    alert("Parabéns! você acertou!")
+                    callFunctions();
                 } else {
-                    return alert("Ops... voce errou")
+                    alert("Ops... voce errou!");
+                    callFunctions();
                 }
+                break;
             case 'multiplication':
                 if (answer === firstValue * secondValue ) {
-                    callFirstValue();
-                    callSecondValue();
-                    setAnswer(0);
+                    alert("Parabéns! você acertou!")
+                    callFunctions();
                 } else {
-                    return alert("Ops... voce errou")
+                    alert("Ops... voce errou!")
+                    callFunctions();
                 }
+                break;
             case 'division':
                 const floor = Math.round(divisionFirstValue / secondValue);
                 if (answer === floor ) {
+                    alert("Parabéns! você acertou!")
                     callDivisionFirstValue();
                     callSecondValue();
                     setAnswer(0);
                 } else {
                     return alert("Ops... voce errou")
                 }
+                break;
             default:
                 return null
         }

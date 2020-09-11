@@ -4,6 +4,7 @@ import Division from './components/Division/Division';
 import Multiplication from './components/Multiplication/Multiplication';
 import Sum from './components/Sum/Sum';
 
+// Define the Routes of the application
 function Routes() {
     return (
         <BrowserRouter>

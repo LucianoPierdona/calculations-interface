@@ -24,12 +24,13 @@ export const Header = styled.header`
     text-align: center;
     margin-bottom: 1rem;
     font-size: 25px;
-    & > a {
+    & > .link {
         margin-right: 15px;
         font-weight: 700;
         transition: color 0.2s;
+        text-decoration: none;
     }
-    & a:hover {
+    & .link:hover {
         color: #f6f7d4;
     }
 `;
