@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Title, ValuesBlock } from './style';
 
-const CalculationTemplate = () => {
+interface Props {
+    title: String,
+    signal: String,
+}
+
+const CalculationTemplate: React.FC<Props> = ({ title, signal}) => {
     const [answer, setAnswer] = useState(Number);
     const [firstValue, setFirstValue] = useState(Number);
     const [secondValue, setSecondValue] = useState(Number);
@@ -25,10 +30,10 @@ const CalculationTemplate = () => {
 
     return (
         <>
-            <Title>Soma</Title>
+            <Title>{title}</Title>
             <ValuesBlock>
                 <h3>{firstValue}</h3>
-                <p>+</p>
+                <p>{signal}</p>
                 <h3>{secondValue}</h3>
             </ValuesBlock>
             <form onSubmit={(e) => {
